@@ -119,7 +119,7 @@ PERGUNTA DO USUÁRIO:
 
         model = os.getenv(
             "GEMINI_MODEL",
-            "gemini-2.5-flash"
+            "gemini-3.6-flash"
         )
 
         response = client.models.generate_content(
