@@ -1,3 +1,4 @@
+from .local_answers import find_local_answer
 import asyncio
 import os
 
@@ -90,7 +91,13 @@ def parse_response(response) -> GroundedAnswer:
 
 
 def _generate_sync(question: str) -> dict:
+    local_result = find_local_answer(question)
+
+if local_result:
+    return local_result
+
     cached = get_cached(question)
+
     if cached:
         return cached
 
@@ -100,6 +107,7 @@ def _generate_sync(question: str) -> dict:
         return direct_result
 
     passages = retrieve_passages(question)
+    
     if not passages:
         result = {"answer": REFUSAL, "evidence": "", "status": "absent", "cached": False}
         set_cached(question, result)
