@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f5f5f7">
+  <title>Solução Prática</title>
+  <link rel="preload" as="image" href="/static/hero-support.png">
+  <link rel="stylesheet" href="/static/style.css?v=10">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="main-nav" aria-label="Navegação principal">
+      <a class="brand" href="#inicio">Solução Prática</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#atendimento">Atendimento</a>
+      <button class="nav-chat" type="button" data-open-chat>Assistente</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero-product">
+      <video
+        class="hero-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        poster="/static/hero-support.png"
+        aria-label="Equipamento sendo preparado para atendimento técnico"
+      >
+        <source src="/static/hero-support.mp4" type="video/mp4">
+        Seu navegador não suporta vídeo.
+      </video>
+
+      <div class="hero-shade" aria-hidden="true"></div>
+
+      <div class="floating-copy" aria-live="polite">
+        <span class="floating-kicker">Suporte que simplifica</span>
+        <strong id="rotating-text">Diagnóstico claro.</strong>
+      </div>
+
+      <div class="hero-bottom">
+        <div class="hero-identity">
+          <p class="eyebrow">Assistência técnica e suporte</p>
+          <h1>Solução Prática</h1>
+          <p>Diagnóstico, manutenção e conectividade com informações claras antes do atendimento.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicos" class="services-section">
+      <div class="section-heading">
+        <p class="eyebrow">Serviços</p>
+        <h2>Ajuda prática para o dia a dia.</h2>
+        <p>Escolha um serviço para abrir uma consulta pronta no assistente.</p>
+      </div>
+
+      <div class="service-grid">
+        <button class="service-card" type="button" data-service-question="Quanto custa o diagnóstico e qual é o prazo?">
+          <span class="service-icon" aria-hidden="true">🔧</span>
+          <span class="service-content"><strong>Diagnóstico</strong><small>Verificação de falhas, lentidão e travamentos.</small></span>
+          <span class="service-action">Consultar <b aria-hidden="true">↗</b></span>
+        </button>
+
+        <button class="service-card" type="button" data-service-question="Quanto custa a formatação, qual é o prazo e o que não está incluído?">
+          <span class="service-icon" aria-hidden="true">💻</span>
+          <span class="service-content"><strong>Formatação</strong><small>Instalação do sistema e configuração inicial.</small></span>
+          <span class="service-action">Consultar <b aria-hidden="true">↗</b></span>
+        </button>
+
+        <button class="service-card" type="button" data-service-question="Quanto custa a limpeza interna, qual é o prazo e ela inclui troca de componentes?">
+          <span class="service-icon clean-icon" aria-hidden="true">✦</span>
+          <span class="service-content"><strong>Limpeza</strong><small>Limpeza interna e verificação da ventilação.</small></span>
+          <span class="service-action">Consultar <b aria-hidden="true">↗</b></span>
+        </button>
+
+        <button class="service-card" type="button" data-service-question="Quanto custa configurar a rede sem fio, quanto demora e quantos dispositivos posso conectar?">
+          <span class="service-icon wifi-icon" aria-hidden="true">◉</span>
+          <span class="service-content"><strong>Rede sem fio</strong><small>Configuração de roteador, senha e dispositivos.</small></span>
+          <span class="service-action">Consultar <b aria-hidden="true">↗</b></span>
+        </button>
+      </div>
+    </section>
+
+    <section id="atendimento" class="info-band">
+      <div class="availability"><span class="online-dot" aria-hidden="true"></span><strong>Atendimento em São Paulo</strong></div>
+      <p>Segunda a sexta, das 8h às 18h. Sábados, das 8h às 12h.</p>
+      <button class="button-primary" type="button" data-open-chat>Abrir atendimento</button>
+    </section>
+  </main>
+
+  <footer>Empresa fictícia utilizada em protótipo acadêmico.</footer>
+
+  <button id="chat-launcher" class="chat-launcher" type="button" aria-controls="chat-window" aria-expanded="false">
+    <span id="lottie-bot" class="lottie-bot" aria-hidden="true"><span class="lottie-fallback">🤖</span></span>
+    <span class="launcher-copy"><strong>Posso ajudar?</strong><small>Clique para conversar</small></span>
+    <i class="online-dot" aria-label="Online"></i>
+  </button>
+
+  <aside id="chat-window" class="chat-window" aria-hidden="true" aria-label="Assistente virtual">
+    <header class="chat-header">
+      <div class="agent-mark" aria-hidden="true">SP</div>
+      <div class="agent-copy"><strong>Assistente virtual</strong><span><i></i> Online agora</span></div>
+      <button id="chat-close" class="close-button" type="button" aria-label="Fechar atendimento">×</button>
+    </header>
+
+    <div class="suggestions" aria-label="Perguntas sugeridas">
+      <button type="button" data-question="Quanto custa o diagnóstico?">Preço do diagnóstico</button>
+      <button type="button" data-question="Quais pagamentos são aceitos?">Formas de pagamento</button>
+      <button type="button" data-question="Qual é o horário de atendimento?">Horário</button>
+    </div>
+
+    <section id="chat" class="chat-messages" aria-live="polite" aria-relevant="additions">
+      <article class="message bot"><div>Olá! Posso ajudar com preços, prazos e condições dos serviços.</div></article>
+    </section>
+
+    <form id="form" class="composer" novalidate>
+      <label class="sr-only" for="question">Digite sua pergunta</label>
+      <input id="question" minlength="2" maxlength="500" autocomplete="off" placeholder="Digite sua pergunta">
+      <button id="send" type="submit" aria-label="Enviar pergunta">↑</button>
+    </form>
+
+    <p id="form-error" class="form-error" role="alert" hidden></p>
+
+    {% if telegram_username %}
+    <a class="telegram-link" href="https://t.me/{{ telegram_username }}" target="_blank" rel="noopener">Abrir no Telegram <span aria-hidden="true">↗</span></a>
+    {% endif %}
+
+    <p class="prototype-note">Protótipo acadêmico com informações simuladas.</p>
+  </aside>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js" defer></script>
+  <script src="/static/app.js?v=10" defer></script>
+</body>
+</html>
