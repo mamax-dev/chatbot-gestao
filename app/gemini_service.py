@@ -92,16 +92,17 @@ def parse_response(response) -> GroundedAnswer:
 
 def _generate_sync(question: str) -> dict:
     local_result = find_local_answer(question)
-
-if local_result:
+    
+    if local_result:
     return local_result
 
     cached = get_cached(question)
-
+    
     if cached:
         return cached
-
+        
     direct_result = classify_before_model(question)
+    
     if direct_result:
         set_cached(question, direct_result)
         return direct_result
@@ -109,7 +110,12 @@ if local_result:
     passages = retrieve_passages(question)
     
     if not passages:
-        result = {"answer": REFUSAL, "evidence": "", "status": "absent", "cached": False}
+        result = {
+            "answer": REFUSAL,
+            "evidence": "",
+            "status": "absent",
+            "cached": False
+        }
         set_cached(question, result)
         return result
 
