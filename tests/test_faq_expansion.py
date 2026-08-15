@@ -15,7 +15,7 @@ def answer(question):
 
 
 def test_price_list_variations():
-    for question in ['preço', 'preços', 'quais os preços', 'tabela de preços', 'quanto custam os serviços']:
+    for question in ['preço', 'preços', 'quais os preços', 'tabela de preços', 'quanto custam os serviços', 'preço de um serviço']:
         text = answer(question)
         for expected in ['R$ 80,00', 'R$ 180,00', 'R$ 120,00', 'R$ 150,00', 'R$ 100,00']:
             assert expected in text
@@ -31,6 +31,7 @@ def test_value_disambiguation():
     assert 'preço de um serviço' in answer('valor')
     assert 'clareza' in answer('valores')
     assert 'clareza' in answer('princípios da empresa')
+    assert 'clareza' in answer('valores institucionais da empresa')
     assert 'R$ 80,00' in answer('valor do diagnóstico')
 
 
